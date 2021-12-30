@@ -2,16 +2,35 @@
   <div class="navbar">
     <div class="navbar-left"><span> Liang Jia Shun</span></div>
     <div class="navbar-right">
-      <router-link to='/'><i class="iconfont icon-shouye"></i> 首页</router-link>
-      <router-link to='/bookList'><i class="iconfont icon-zanwushudan"></i> 书单</router-link>
-      <router-link to='/messageBoard'><i class="iconfont icon-liuyanban-05"></i> 留言板</router-link>
-      <router-link to='/messageBoard'><i class="iconfont icon-guanyu"></i> 关于</router-link>
+      <div class="navBar-text" v-for="(item,i) in navData" :class="{ nav_li : active === i }" :key="i" @click="$router.push({ path: item.path }), active = i">
+        <i :class="item.iconUrl"></i> {{item.name}}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      active: 0,
+      navData: [
+        { name: '首页', path: '/', iconUrl: 'iconfont icon-shouye' },
+        {
+          name: '书单',
+          path: '/bookList',
+          iconUrl: 'iconfont icon-zanwushudan'
+        },
+        {
+          name: '留言板',
+          path: '/messageBoard',
+          iconUrl: 'iconfont icon-liuyanban-05'
+        },
+        { name: '关于', path: '/about', iconUrl: 'iconfont icon-guanyu' }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -27,17 +46,30 @@ export default {}
 }
 .navbar-left span {
   color: #f8e9e9;
-  font-size: 22px;
+  font-size: 26px;
   font-family: "Dancing Script", cursive;
 }
 .navbar-right {
-  margin-left: 100px;
+  margin-left: 150px;
   line-height: 90px;
   display: flex;
 }
-.navbar-right a {
+.navbar-right div {
+  padding: 0 29px;
+  text-align: center;
+}
+.navbar-right div:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #fff;
+  transition: 0.5s;
+}
+.navBar-text {
+  font-size: 19px;
   text-decoration: none;
   color: #f8e9e9;
-  margin-left: 6rem;
+}
+.nav_li {
+  border-bottom: 3px solid #fff;
+  transition: 0.5s;
 }
 </style>

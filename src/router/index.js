@@ -14,22 +14,27 @@ const routes = [
       {
         path: 'Home',
         name: 'HomePage',
-        component: () => import('@/views/Home.vue')
+        component: () => import('@/views/Home/Home.vue')
+      },
+      {
+        path: '/homeDetails',
+        name: 'homeDetails',
+        component: () => import('@/views/Home/Details/details.vue')
       },
       {
         path: '/bookList',
         name: 'bookList',
-        component: () => import('@/views/bookList.vue')
+        component: () => import('@/views/bookList/bookList.vue')
       },
       {
         path: '/messageBoard',
         name: 'messageBoard',
-        component: () => import('@/views/messageBoard.vue')
+        component: () => import('@/views/Board/messageBoard.vue')
       },
       {
         path: '/about',
         name: 'about',
-        component: () => import('@/views/about.vue')
+        component: () => import('@/views/About/about.vue')
       }
     ]
   }

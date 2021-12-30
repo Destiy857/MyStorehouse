@@ -24,6 +24,7 @@ export default {
   },
   computed: {
     key () {
+      console.log(this.$router)
       return this.$router.path
     }
   }
@@ -33,8 +34,6 @@ export default {
 <style scoped>
 .box-main {
   width: 100%;
-  height: 550px;
-  background: #d1d1d0;
   overflow: hidden;
 }
 .fade-transform-leave-active,
